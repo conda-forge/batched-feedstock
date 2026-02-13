@@ -1,5 +1,5 @@
 context:
-  version: "0.1.4"
+  version: "0.1.5"
   python_min: "3.10"  # they use X|Y type unions
 
 package:
@@ -7,8 +7,8 @@ package:
   version: ${{ version }}
 
 source:
-- url: https://pypi.org/packages/source/b/batched/batched-${{ version }}.tar.gz
-  sha256: 98344c450d23b1612d5c2d6462ad43428602c80c12cd8d803ead5e4616dd5c59
+  - url: https://pypi.org/packages/source/b/batched/batched-${{ version }}.tar.gz
+    sha256: 58b8a41d3f8d4d39a0edba79c6238ed204938cfc2c8908224919d70af07c610d
 
 build:
   number: 0
@@ -17,18 +17,18 @@ build:
 
 requirements:
   host:
-  - python ${{ python_min }}.*
-  - setuptools >=61.0
-  - pip
+    - python ${{ python_min }}.*
+    - setuptools >=61.0
+    - pip
   run:
-  - python >=${{ python_min }}
+    - python >=${{ python_min }}
 
 tests:
-- python:
-    python_version: ${{ python_min }}.*
-    imports:
-    - batched
-    pip_check: true
+  - python:
+      python_version: ${{ python_min }}.*
+      imports:
+        - batched
+      pip_check: true
 
 about:
   homepage: https://github.com/mixedbread-ai/batched
@@ -38,4 +38,4 @@ about:
 
 extra:
   recipe-maintainers:
-  - moritzwilksch
+    - moritzwilksch
